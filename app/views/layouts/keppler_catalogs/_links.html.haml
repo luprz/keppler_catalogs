@@ -1,0 +1,4 @@
+%li
+	= link_to "/admin/catalogs", class: "collapsible-header #{'current' if controller_name == 'catalogs' }" do
+		= material_icon.md_18.perm_media
+		= t('model.plural.catalogs')

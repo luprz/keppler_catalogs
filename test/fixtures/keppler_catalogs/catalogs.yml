@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cover: MyString
+  name: MyString
+  description: MyText
+  section: MyString
+  public: false
+  permalink: MyString
+
+two:
+  cover: MyString
+  name: MyString
+  description: MyText
+  section: MyString
+  public: false
+  permalink: MyString

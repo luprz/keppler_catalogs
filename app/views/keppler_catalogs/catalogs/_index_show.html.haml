@@ -1,0 +1,36 @@
+.listing-show-header
+	.actions
+		- if can? :update, model
+			= link_to edit_catalog_path(@catalog), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Editar" do
+				= material_icon.md_24.create
+	%h5
+		= material_icon.md_24.perm_media.css_class("md-light") 
+		= t("model.singular.#{controller_name.singularize}")
+.listing-show-body.card
+	%ul.list
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.id")
+			.display-value= @catalog.id
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.cover")
+			.display-value= @catalog.cover
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.name")
+			.display-value= @catalog.name
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.description")
+			.display-value= @catalog.description
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.section")
+			.display-value= @catalog.section
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.public")
+			.display-value= @catalog.public
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.permalink")
+			.display-value= @catalog.permalink
+	
+
+:javascript
+	$(".modal-trigger").leanModal();
+	$('.tooltipped').tooltip({delay: 1});

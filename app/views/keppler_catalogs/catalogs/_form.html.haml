@@ -1,0 +1,18 @@
+.wrapper
+	.wrapper-body.container
+		.actions
+			= link_to catalogs_path, class: "btn-floating btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Volver" do
+				= material_icon.md_18.arrow_back.css_class("md-dark")
+		.wrapper-inputs
+			.card
+				= simple_form_for @catalog do |f|
+					.row
+						= f.input :cover
+						= f.input :name
+						= f.input :description, input_html: {class: "materialize-textarea"}
+						= f.input :section
+						= f.input :public, as: :checkbox_material
+						= f.input :permalink
+
+					.form-actions.right
+						= f.button :submit, "Guardar", class: "btn"
