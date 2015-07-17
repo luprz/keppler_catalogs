@@ -7,12 +7,12 @@
 			.card
 				= simple_form_for @catalog do |f|
 					.row
-						= f.input :cover
-						= f.input :name
+					
+						= f.input :cover, :as => :file_material, label: false, wrapper_html: { class: "file-field" }
+						= f.input :name								
 						= f.input :description, input_html: {class: "materialize-textarea"}
-						= f.input :section
+						= f.input :section, label: false, collection: KepplerCatalogs.sections,include_blank: "- Selecciona una sección -", input_html: { class: "browser-default" }
 						= f.input :public, as: :checkbox_material
-						= f.input :permalink
 
 					.form-actions.right
 						= f.button :submit, "Guardar", class: "btn"

@@ -1,0 +1,32 @@
+es:
+  model:
+    plural:
+      catalogs: Catálogos
+      categories: Categorías
+    singular:
+      catalog: Catálogo
+      category: Categoría
+    catalog:
+      description:
+        title: Módulo de mensajes 
+        body: Aquí podrá gestionar todos los mensajes enviados desde el formulario de contactos, en ella podras leer, buscar y eliminar mensajes de tus visitas, ademas de poder observar los mensajes leidos y no leidos en la bandeja de entrada.
+      no_found: 
+        text: No se han encontrado catálogos.
+      attributes:
+        name: Nombre
+        section: Sección
+        public: Publicado
+        description: Descripción
+      actions:
+        delete: "¿Estas seguro de querer eliminar?"
+    category:
+      description:
+        title: Módulo de mensajes 
+        body: Aquí podrá gestionar todos los mensajes enviados desde el formulario de contactos, en ella podras leer, buscar y eliminar mensajes de tus visitas, ademas de poder observar los mensajes leidos y no leidos en la bandeja de entrada.
+      no_found: 
+        text: No se han encontrado categorías.
+      attributes:
+        id: Identificador
+        name: Nombre
+      actions:
+        delete: "¿Estas seguro de querer eliminar?"

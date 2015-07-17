@@ -10,26 +10,23 @@
 					= material_icon.md_18.create.css_class("md-dark")
 			= link_to catalogs_path, class: "btn-floating btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Volver" do
 				= material_icon.md_18.arrow_back.css_class("md-dark") 
-		.card			
-			%ul.list
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.id")
-					.display-value.fs-body-1.tc-black-2= @catalog.id.to_s.humanize
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.cover")
-					.display-value.fs-body-1.tc-black-2= @catalog.cover.to_s.humanize
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.name")
-					.display-value.fs-body-1.tc-black-2= @catalog.name.to_s.humanize
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.description")
-					.display-value.fs-body-1.tc-black-2= @catalog.description.to_s.humanize
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.section")
-					.display-value.fs-body-1.tc-black-2= @catalog.section.to_s.humanize
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.public")
-					.display-value.fs-body-1.tc-black-2= @catalog.public.to_s.humanize
-				%li.list-row
-					.display-label= t("model.#{controller_name.singularize}.attributes.permalink")
-					.display-value.fs-body-1.tc-black-2= @catalog.permalink.to_s.humanize
+		.card{style: "padding: 0px"}		
+			.card-image
+				= image_tag @catalog.cover	
+			.card-content
+				%ul.list
+					%li.list-row
+						.display-label= t("model.#{controller_name.singularize}.attributes.name")
+						.display-value.fs-body-1.tc-black-2= @catalog.name.to_s.humanize
+					%li.list-row
+						.display-label= t("model.#{controller_name.singularize}.attributes.description")
+						.display-value.fs-body-1.tc-black-2= @catalog.description.to_s.humanize
+					%li.list-row
+						.display-label= t("model.#{controller_name.singularize}.attributes.section")
+						.display-value.fs-body-1.tc-black-2= @catalog.section.to_s.humanize
+					%li.list-row
+						.display-label= t("model.#{controller_name.singularize}.attributes.public")
+						- if @catalog.public?						
+							.display-value.fs-body-1.tc-black-2 Si
+						- else						
+							.display-value.fs-body-1.tc-black-2 No

@@ -7,28 +7,23 @@
 		= material_icon.md_24.perm_media.css_class("md-light") 
 		= t("model.singular.#{controller_name.singularize}")
 .listing-show-body.card
+	= image_tag @catalog.cover
 	%ul.list
-		%li.list-row
-			.display-label= t("model.#{controller_name.singularize}.attributes.id")
-			.display-value= @catalog.id
-		%li.list-row
-			.display-label= t("model.#{controller_name.singularize}.attributes.cover")
-			.display-value= @catalog.cover
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.name")
 			.display-value= @catalog.name
-		%li.list-row
-			.display-label= t("model.#{controller_name.singularize}.attributes.description")
-			.display-value= @catalog.description
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.section")
 			.display-value= @catalog.section
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.public")
-			.display-value= @catalog.public
+			- if @catalog.public?
+				.display-value Si
+			- else
+				.display-value No	
 		%li.list-row
-			.display-label= t("model.#{controller_name.singularize}.attributes.permalink")
-			.display-value= @catalog.permalink
+			.display-label= t("model.#{controller_name.singularize}.attributes.description")
+			.display-value= @catalog.description
 	
 
 :javascript

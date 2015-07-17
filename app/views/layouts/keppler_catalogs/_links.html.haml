@@ -1,4 +1,13 @@
 %li
-	= link_to "/admin/catalogs", class: "collapsible-header #{'current' if controller_name == 'catalogs' }" do
-		= material_icon.md_18.perm_media
-		= t('model.plural.catalogs')
+	- if can? :index, KepplerCatalogs::Catalog
+		.collapsable.collapsible-header{ class: "#{'active current' if controller_path.camelize.deconstantize.eql?('KepplerCatalogs') }" }
+			= material_icon.md_18.perm_media
+			= t('model.plural.catalogs')
+		.collapsible-body
+			%ul.pageslide-sub-menu
+				- if can? :index, KepplerCatalogs::Catalog
+					%li
+						= link_to "Lista de catalogos", '/admin/catalogs', class: "#{'current' if controller_path.camelize == 'KepplerCatalogs::Catalog' }"
+				- if can? :index, KepplerCatalogs::Category
+					%li
+						= link_to "Categorías", '/admin/attachment/categories', class: "#{'current' if controller_path.camelize ==  'KepplerCatalogs::Category' }"

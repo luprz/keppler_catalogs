@@ -1,0 +1,21 @@
+.wrapper
+	.wrapper-body.container
+		.actions
+			= link_to catalog_attachments_path, class: "btn-floating btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Volver" do
+				= material_icon.md_18.arrow_back.css_class("md-dark")
+		.wrapper-inputs
+			.card
+				= simple_form_for @attachment, :url => "/admin/catalogs/1/attachments", :method => :post  do |f|
+
+					.row
+						= f.input :name
+						= f.input :upload
+						= f.input :description, input_html: {class: "materialize-textarea"}
+						= f.input :image
+						= f.input :url, input_html: {class: "materialize-textarea"}
+						= f.input :target, input_html: {class: "materialize-textarea"}
+						= f.input :public, as: :checkbox_material
+						= f.input :permalink
+
+					.form-actions.right
+						= f.button :submit, "Guardar", class: "btn"

@@ -33,7 +33,7 @@ module KepplerCatalogs
       @catalog = Catalog.new(catalog_params)
 
       if @catalog.save
-        redirect_to @catalog, notice: 'Catalog was successfully created.'
+        redirect_to catalogs_path, notice: 'Catalog was successfully created.'
       else
         render :new
       end
@@ -42,7 +42,7 @@ module KepplerCatalogs
     # PATCH/PUT /catalogs/1
     def update
       if @catalog.update(catalog_params)
-        redirect_to @catalog, notice: 'Catalog was successfully updated.'
+        redirect_to catalogs_path, notice: 'Catalog was successfully updated.'
       else
         render :edit
       end

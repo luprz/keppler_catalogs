@@ -5,10 +5,10 @@
 			%input{ type:"checkbox", class: "filled-in", id: "checkbox-#{catalog.id}", 'checklist-model'=>"check", 'checklist-value'=>"#{catalog.id}", "ng-click"=>"selectByCheck(#{@objects.size})"}
 			%label{ for: "checkbox-#{catalog.id}" }
 
-		%td{style:"width: 30%"}
+		%td{style:"width: 10%"}
 			= link_to "", catalog_path(catalog, search: @query), remote: true, class: "show-row"
 			%span
-				= catalog.cover
+				= material_icon.md_24.folder_open
 		%td{style:"width: 30%"}
 			= link_to "", catalog_path(catalog, search: @query), remote: true, class: "show-row"
 			%span
@@ -20,12 +20,15 @@
 		%td{style:"width: 30%"}
 			= link_to "", catalog_path(catalog, search: @query), remote: true, class: "show-row"
 			%span
-				= catalog.public
+				-if catalog.public?
+					Publicado
+				-else
+					No Publicado
 		%td{style:"width: 30%"}
 			= link_to "", catalog_path(catalog, search: @query), remote: true, class: "show-row"
 			%span
 				= catalog.permalink
 								
 	%td{style:"width: 5%"}		
-		= link_to catalog_path(catalog), class: "btn-floating waves-effect btn-flat" do
-			= material_icon.md_24.more_horiz.css_class("md-dark")
+		= link_to catalog_path(catalog), class: "btn-floating waves-effect btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Ver Archivos" do
+			= material_icon.md_24.navigate_next.css_class("md-dark")
