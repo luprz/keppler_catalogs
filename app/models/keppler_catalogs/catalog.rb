@@ -8,6 +8,10 @@ module KepplerCatalogs
     before_save :create_permalink
     has_many :attachments, :dependent => :destroy
 
+    after_commit on: [:update] do
+      puts __elasticsearch__.index_document
+    end
+    
     def self.searching(query)
       if query
         self.search(self.query query).records.order(id: :desc)

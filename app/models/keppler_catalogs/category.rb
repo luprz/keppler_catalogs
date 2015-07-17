@@ -6,6 +6,10 @@ module KepplerCatalogs
     include Elasticsearch::Model::Callbacks
     before_save :create_permalink
 
+    after_commit on: [:update] do
+      puts __elasticsearch__.index_document
+    end 
+    
     def self.searching(query)
       if query
         self.search(self.query query).records.order(id: :desc)
@@ -15,7 +19,7 @@ module KepplerCatalogs
     end
 
     def self.query(query)
-      { query: { multi_match:  { query: query, fields: [] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
+      { query: { multi_match:  { query: query, fields: [:name] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
     end
 
     #armar indexado de elasticserch

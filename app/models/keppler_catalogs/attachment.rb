@@ -5,6 +5,11 @@ module KepplerCatalogs
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
     belongs_to :catalog
+    mount_uploader :image, CoverUploader
+    
+    after_commit on: [:update] do
+      puts __elasticsearch__.index_document
+    end
 
     def self.searching(query)
       if query
@@ -15,8 +20,10 @@ module KepplerCatalogs
     end
 
     def self.query(query)
-      { query: { multi_match:  { query: query, fields: [] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
+      { query: { multi_match:  { query: query, fields: [:name, :public] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
     end
+
+    
 
     #armar indexado de elasticserch
     def as_indexed_json(options={})
@@ -28,7 +35,7 @@ module KepplerCatalogs
         image:  self.image.to_s,
         url:  self.url.to_s,
         target:  self.target.to_s,
-        public:  self.public.to_s,
+        public:  self.public ? "Publicado" : "--Publicado",
         permalink:  self.permalink.to_s,
       }.as_json
     end

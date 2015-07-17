@@ -88,7 +88,7 @@ Para configurar el ckeditor con los elementos necesarios para el catalogo crear 
 ```javascript
 CKEDITOR.editorConfig = function (config) {
    config.toolbar_catalog = [
-    ["Styles","Format","Font","FontSize","TextColor","BGColor","Bold",  "Italic",  "Underline",  "Strike",  "-",  "Subscript",  "Superscript", "RemoveFormat", "Preview", "Undo", "Redo", "SelectAll", "NumberedList", "BulletedList", "Link", "Unlink", "Anchor","Outdent","Indent","Blockquote","CreateDiv","JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock","BidiLtr","BidiRtl"],
+    ["Styles","Format","Font","FontSize","TextColor","BGColor","Bold",  "Italic",  "Underline",  "Strike",  "-",  "Subscript",  "Superscript", "RemoveFormat", "Preview", "Undo", "Redo", "SelectAll", "NumberedList", "BulletedList", "Link", "Unlink", "Anchor","Outdent","Indent","Blockquote","CreateDiv","JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock","BidiLtr","BidiRtl", "Maximize"]
   ];
   config.toolbar = "mini";  
 }

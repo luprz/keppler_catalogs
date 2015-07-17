@@ -7,9 +7,11 @@ es:
     plural:
       catalogs: Catálogos
       categories: Categorías
+      attachments: Archivos
     singular:
       catalog: Catálogo
       category: Categoría
+      attachment: Archivo
     catalog:
       description:
         title: Módulo de mensajes 
@@ -32,5 +34,27 @@ es:
       attributes:
         id: Identificador
         name: Nombre
+      actions:
+        delete: "¿Estas seguro de querer eliminar?"
+    attachment:
+      description:
+        title: Módulo de mensajes 
+        body: Aquí podrá gestionar todos los mensajes enviados desde el formulario de contactos, en ella podras leer, buscar y eliminar mensajes de tus visitas, ademas de poder observar los mensajes leidos y no leidos en la bandeja de entrada.
+      no_found: 
+        text: No se han encontrado archivos.
+      form:
+        id: Identificador
+        name: Nombre
+        upload: "- Selecciona tipo de archivo -"
+        image: Imagen
+        target: Enlace externo
+        public: Publicar
+      attributes:
+        id: Identificador
+        name: Nombre
+        upload: "- Selecciona tipo de archivo -"
+        image: Imagen
+        target: Enlace externo
+        public: Publicado
       actions:
         delete: "¿Estas seguro de querer eliminar?"
