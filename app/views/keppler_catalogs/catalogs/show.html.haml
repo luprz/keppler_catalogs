@@ -20,7 +20,7 @@
 						.display-value.fs-body-1.tc-black-2= @catalog.name.to_s.humanize
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.description")
-						.display-value.fs-body-1.tc-black-2= @catalog.description.to_s.humanize
+						.display-value.fs-body-1.tc-black-2= @catalog.description.html_safe
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.section")
 						.display-value.fs-body-1.tc-black-2= @catalog.section.to_s.humanize

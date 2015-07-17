@@ -4,6 +4,7 @@ module KepplerCatalogs
   class Attachment < ActiveRecord::Base
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
+    belongs_to :catalog
 
     def self.searching(query)
       if query

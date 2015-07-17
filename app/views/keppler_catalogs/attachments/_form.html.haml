@@ -1,3 +1,4 @@
+- (action_name == "new" or action_name == "create") ? action="create" : action="update"
 .wrapper
 	.wrapper-body.container
 		.actions
@@ -5,17 +6,15 @@
 				= material_icon.md_18.arrow_back.css_class("md-dark")
 		.wrapper-inputs
 			.card
-				= simple_form_for @attachment, :url => "/admin/catalogs/1/attachments", :method => :post  do |f|
-
+				= simple_form_for @attachment, :url => url_for(:action => action, :controller => 'attachments') do |f|
 					.row
 						= f.input :name
 						= f.input :upload
-						= f.input :description, input_html: {class: "materialize-textarea"}
+						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'catalog'} }
 						= f.input :image
 						= f.input :url, input_html: {class: "materialize-textarea"}
 						= f.input :target, input_html: {class: "materialize-textarea"}
 						= f.input :public, as: :checkbox_material
-						= f.input :permalink
 
-					.form-actions.right
-						= f.button :submit, "Guardar", class: "btn"
+						.form-actions.right
+							= f.button :submit, "Guardar", class: "btn"

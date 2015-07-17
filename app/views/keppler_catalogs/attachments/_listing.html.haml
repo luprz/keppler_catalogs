@@ -1,31 +1,31 @@
 %tr{ id: "row-#{attachment.id}" }
 	- if can? :destroy_multiple, model
 		%td.item-check{style:"width: 10%"}
-			= link_to "", catalog_attachments_path(attachment), remote: true, class: "show-row"
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment), remote: true, class: "show-row"
 			%input{ type:"checkbox", class: "filled-in", id: "checkbox-#{attachment.id}", 'checklist-model'=>"check", 'checklist-value'=>"#{attachment.id}", "ng-click"=>"selectByCheck(#{@objects.size})"}
 			%label{ for: "checkbox-#{attachment.id}" }
 
 		%td{style:"width: 30%"}
-			= link_to "", catalog_attachments_path(attachment, search: @query), remote: true, class: "show-row"
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment.id, search: @query), remote: true, class: "show-row"
 			%span
 				= attachment.name
 		%td{style:"width: 30%"}
-			= link_to "", catalog_attachments_path(attachment, search: @query), remote: true, class: "show-row"
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment, search: @query), remote: true, class: "show-row"
 			%span
 				= attachment.upload
 		%td{style:"width: 30%"}
-			= link_to "", catalog_attachments_path(attachment, search: @query), remote: true, class: "show-row"
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment, search: @query), remote: true, class: "show-row"
 			%span
 				= attachment.image
 		%td{style:"width: 30%"}
-			= link_to "", catalog_attachments_path(attachment, search: @query), remote: true, class: "show-row"
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment, search: @query), remote: true, class: "show-row"
 			%span
 				= attachment.public
 		%td{style:"width: 30%"}
-			= link_to "", catalog_attachments_path(attachment, search: @query), remote: true, class: "show-row"
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment, search: @query), remote: true, class: "show-row"
 			%span
 				= attachment.permalink
 								
 	%td{style:"width: 5%"}		
-		= link_to catalog_attachments_path(attachment), class: "btn-floating waves-effect btn-flat" do
+		= link_to catalog_attachment_path(params[:catalog_id], attachment), class: "btn-floating waves-effect btn-flat" do
 			= material_icon.md_24.more_horiz.css_class("md-dark")

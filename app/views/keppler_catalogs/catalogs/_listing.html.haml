@@ -30,5 +30,5 @@
 				= catalog.permalink
 								
 	%td{style:"width: 5%"}		
-		= link_to catalog_path(catalog), class: "btn-floating waves-effect btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Ver Archivos" do
+		= link_to catalog_attachments_path(catalog), class: "btn-floating waves-effect btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Ver Archivos" do
 			= material_icon.md_24.navigate_next.css_class("md-dark")

@@ -6,6 +6,7 @@ module KepplerCatalogs
     include Elasticsearch::Model::Callbacks
     mount_uploader :cover, CoverUploader
     before_save :create_permalink
+    has_many :attachments, :dependent => :destroy
 
     def self.searching(query)
       if query

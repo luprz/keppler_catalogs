@@ -10,9 +10,9 @@
 					
 						= f.input :cover, :as => :file_material, label: false, wrapper_html: { class: "file-field" }
 						= f.input :name								
-						= f.input :description, input_html: {class: "materialize-textarea"}
+						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'catalog'} }
 						= f.input :section, label: false, collection: KepplerCatalogs.sections,include_blank: "- Selecciona una sección -", input_html: { class: "browser-default" }
 						= f.input :public, as: :checkbox_material
 
-					.form-actions.right
-						= f.button :submit, "Guardar", class: "btn"
+						.form-actions.right
+							= f.button :submit, "Guardar", class: "btn"
