@@ -10,6 +10,7 @@ class CreateKepplerCatalogsAttachments < ActiveRecord::Migration
       t.boolean :public
       t.string :permalink
       t.belongs_to :catalog
+      t.belongs_to :category
 
       t.timestamps null: false
     end

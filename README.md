@@ -61,7 +61,7 @@ rake db:migrate
 Asignale permisos al modulo en el archivo app/models/ability.rb.
 
 ```ruby
-  can :manage, KepplerCatalogs::Catalogs
+  can :manage, KepplerCatalogs::Catalog
   can :manage, KepplerCatalogs::Category
   can :manage, KepplerCatalogs::Attachment
 ```

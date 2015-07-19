@@ -5,6 +5,7 @@ module KepplerCatalogs
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
     belongs_to :catalog
+    belongs_to :category
     mount_uploader :image, CoverUploader
     
     after_commit on: [:update] do

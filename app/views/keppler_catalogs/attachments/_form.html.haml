@@ -14,6 +14,9 @@
 						= f.input :image,label: t("model.#{controller_name.singularize}.attributes.image"), :as => :file_material, label: false, wrapper_html: { class: "file-field" }
 						= f.input :url, input_html: {class: "materialize-textarea"}
 						= f.input :target, label: t("model.#{controller_name.singularize}.attributes.target"), input_html: {class: "materialize-textarea"}
+
+						= f.association :category
+
 						= f.input :public, label: "Publicar", as: :checkbox_material
 
 						.form-actions.right

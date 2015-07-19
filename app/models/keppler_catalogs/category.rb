@@ -5,7 +5,8 @@ module KepplerCatalogs
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
     before_save :create_permalink
-
+    has_many :attachments, :dependent => :destroy
+    
     after_commit on: [:update] do
       puts __elasticsearch__.index_document
     end 
