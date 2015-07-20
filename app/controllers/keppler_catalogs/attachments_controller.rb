@@ -75,7 +75,7 @@ module KepplerCatalogs
 
       # Only allow a trusted parameter "white list" through.
       def attachment_params
-        params.require(:attachment).permit(:name, :upload, :description, :image, :url, :target, :public, :permalink)
+        params.require(:attachment).permit(:name, :upload, :description, :image, :url, :target, :public, :permalink, :category_id)
       end
   end
 end

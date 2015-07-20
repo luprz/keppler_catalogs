@@ -12,7 +12,12 @@
 				= material_icon.md_18.arrow_back.css_class("md-dark") 
 		.card{style: "padding: 0px"}		
 			.card-image
-				= image_tag @attachment.image
+				- if @attachment.image?
+					= image_tag @attachment.image
+				- elsif @attachment.url? and @attachment.upload.to_i == 2
+					= image_tag @attachment.url
+				- elsif @attachment.url? and @attachment.upload.to_i == 3
+					%iframe.video-player.img-responsive{:allowfullscreen => "", :frameborder => "0",:src =>"#{@attachment.url}", style: "width:100%;height:500px"}
 			.card-content			
 				%ul.list
 					%li.list-row
@@ -21,6 +26,9 @@
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.description")
 						.display-value.fs-body-1.tc-black-2= @attachment.description.html_safe
+					%li.list-row
+						.display-label= t("model.#{controller_name.singularize}.attributes.category")
+						.display-value.fs-body-1.tc-black-2= @attachment.category.name.to_s.humanize
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.target")
 						.display-value.fs-body-1.tc-black-2= @attachment.target.to_s.humanize

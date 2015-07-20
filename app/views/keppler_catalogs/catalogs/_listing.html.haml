@@ -24,10 +24,6 @@
 					Publicado
 				-else
 					No Publicado
-		%td{style:"width: 30%"}
-			= link_to "", catalog_path(catalog, search: @query), remote: true, class: "show-row"
-			%span
-				= catalog.permalink
 								
 	%td{style:"width: 5%"}		
 		= link_to catalog_attachments_path(catalog), class: "btn-floating waves-effect btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Ver Archivos" do

@@ -1,13 +1,18 @@
 .listing-show-header
 	.actions
 		- if can? :update, model
-			= link_to edit_catalog_attachment_path(params[:catalog_id], @attachment), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Editar" do
+			= link_to edit_catalog_attachment_path(params[:catalog_id], @attachment), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Editar", "data-no-turbolink" => false do
 				= material_icon.md_24.create
 	%h5
 		= material_icon.md_24.perm_media.css_class("md-light") 
 		= t("model.singular.#{controller_name.singularize}")
 .listing-show-body.card
-	= image_tag @attachment.image
+	- if @attachment.image?
+		= image_tag @attachment.image
+	- elsif @attachment.url? and @attachment.upload.to_i == 2
+		= image_tag @attachment.url
+	- elsif @attachment.url? and @attachment.upload.to_i == 3
+		%iframe.video-player.img-responsive{:allowfullscreen => "", :frameborder => "0",:src =>"#{@attachment.url}", style: "width:100%;height:200px"}
 	%ul.list
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.name")
@@ -15,6 +20,9 @@
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.description")
 			.display-value= @attachment.description.html_safe
+		%li.list-row
+			.display-label= t("model.#{controller_name.singularize}.attributes.category")
+			.display-value= @attachment.category.name
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.target")
 			.display-value= @attachment.target

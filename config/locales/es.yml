@@ -56,5 +56,6 @@ es:
         image: Imagen
         target: Enlace externo
         public: Publicado
+        category: Categoría
       actions:
         delete: "¿Estas seguro de querer eliminar?"

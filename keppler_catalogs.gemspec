@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_dependency "haml_rails"
   s.add_dependency "carrierwave"
   s.add_dependency "ckeditor"
+  s.add_dependency "soundcloud"
   
 end

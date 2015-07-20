@@ -5,10 +5,16 @@
 			%input{ type:"checkbox", class: "filled-in", id: "checkbox-#{attachment.id}", 'checklist-model'=>"check", 'checklist-value'=>"#{attachment.id}", "ng-click"=>"selectByCheck(#{@objects.size})"}
 			%label{ for: "checkbox-#{attachment.id}" }
 
-		%td{style:"width: 60%"}
+		%td{style:"width: 30%"}
 			= link_to "", catalog_attachment_path(params[:catalog_id], attachment.id, search: @query), remote: true, class: "show-row"
 			%span
 				= attachment.name
+
+		%td{style:"width: 30%"}
+			= link_to "", catalog_attachment_path(params[:catalog_id], attachment.id, search: @query), remote: true, class: "show-row"
+			%span
+				= attachment.category.name
+
 		%td{style:"width: 30%"}
 			= link_to "", catalog_attachment_path(params[:catalog_id], attachment, search: @query), remote: true, class: "show-row"
 			%span

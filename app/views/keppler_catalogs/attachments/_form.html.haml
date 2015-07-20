@@ -8,11 +8,19 @@
 			.card
 				= simple_form_for @attachment, :url => url_for(:action => action, :controller => 'attachments') do |f|
 					.row
-						= f.input :name, label: t("model.#{controller_name.singularize}.attributes.name")
-						= f.input :upload, label: false, collection: [["Subir imagen", 1], ["Imagen por url", 2], ["Video por url", 3], ["Musica por url", 3]],include_blank: t("model.#{controller_name.singularize}.attributes.upload"), input_html: { class: "browser-default" }
-						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'catalog'} }
-						= f.input :image,label: t("model.#{controller_name.singularize}.attributes.image"), :as => :file_material, label: false, wrapper_html: { class: "file-field" }
-						= f.input :url, input_html: {class: "materialize-textarea"}
+						= f.input :name, label: t("model.#{controller_name.singularize}.attributes.name")						
+
+						= f.input :upload, label: false, collection: [["Subir imagen", 1], ["Imagen por url", 2], ["Video por url", 3], ["Musica por url", 3]],include_blank: t("model.#{controller_name.singularize}.attributes.upload"), input_html: { class: "browser-default upload-select" }
+
+						#image
+							= f.input :image,label: t("model.#{controller_name.singularize}.attributes.image"), :as => :file_material, label: false, wrapper_html: { class: "file-field" }
+							
+						#url
+							= f.input :url, input_html: {class: "materialize-textarea"}
+
+						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'catalog'} }					
+						
+
 						= f.input :target, label: t("model.#{controller_name.singularize}.attributes.target"), input_html: {class: "materialize-textarea"}
 
 						= f.association :category
@@ -21,3 +29,20 @@
 
 						.form-actions.right
 							= f.button :submit, "Guardar", class: "btn"
+
+
+-if @attachment.upload == "1"
+	:javascript    
+		$("#image").show();
+		$("#url").hide();
+-else
+	- if @attachment.upload.blank?
+		:javascript    
+			$("#image").hide();
+			$("#url").hide();
+	-else
+		:javascript    
+			$("#image").hide();
+			$("#url").show();
+
+
