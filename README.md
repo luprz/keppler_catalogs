@@ -43,10 +43,11 @@ en application.js
 ```
 *= require keppler_catalogs/application
 ```
-añadir la siguiente linea a su manifesto javascript admin/application.css
+añadir la siguiente linea a su manifesto javascript admin/application.coffee
 
 ```
-//= require keppler_catalogs/application
+#= require keppler_catalogs/application
+#= require ckeditor/init
 ```
 
 Luego importar migraciones y crear las tablas de contactos desde la consola
