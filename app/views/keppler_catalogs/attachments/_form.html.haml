@@ -23,7 +23,7 @@
 
 						= f.input :target, label: t("model.#{controller_name.singularize}.attributes.target"), input_html: {class: "materialize-textarea"}
 
-						= f.association :category
+						= f.association :category, label: false,include_blank: "- Selecciona una categoria -", input_html: { class: "browser-default" }
 
 						= f.input :public, label: "Publicar", as: :checkbox_material
 

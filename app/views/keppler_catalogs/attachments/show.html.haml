@@ -25,13 +25,14 @@
 						.display-value.fs-body-1.tc-black-2= @attachment.name.to_s.humanize
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.description")
-						.display-value.fs-body-1.tc-black-2= @attachment.description.html_safe
+						.display-value.fs-body-1.tc-black-2= sanitize(@attachment.description, tags: []).truncate(300)
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.category")
 						.display-value.fs-body-1.tc-black-2= @attachment.category.name.to_s.humanize
-					%li.list-row
-						.display-label= t("model.#{controller_name.singularize}.attributes.target")
-						.display-value.fs-body-1.tc-black-2= @attachment.target.to_s.humanize
+					-if @attachment.target?
+						%li.list-row
+							.display-label= t("model.#{controller_name.singularize}.attributes.target")
+							.display-value.fs-body-1.tc-black-2= @attachment.target.to_s.humanize
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.public")
 						- if @attachment.public?						

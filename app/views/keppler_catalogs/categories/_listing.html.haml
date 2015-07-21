@@ -5,10 +5,10 @@
 			%input{ type:"checkbox", class: "filled-in", id: "checkbox-#{category.id}", 'checklist-model'=>"check", 'checklist-value'=>"#{category.id}", "ng-click"=>"selectByCheck(#{@objects.size})"}
 			%label{ for: "checkbox-#{category.id}" }
 
-		%td{style:"width: 80%"}
-			= link_to "", category_path(category, search: @query), remote: true, class: "show-row"
-			%span
-				= category.name
+	%td{style:"width: 80%"}
+		= link_to "", category_path(category, search: @query), remote: true, class: "show-row"
+		%span
+			= category.name
 								
 	%td{style:"width: 5%"}		
 		= link_to category_path(category), class: "btn-floating waves-effect btn-flat" do
