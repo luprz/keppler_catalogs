@@ -1,8 +1,8 @@
 es:
   header:
-    categories: Archivo > Categorías
-    catalogs: Catálogos
-    attachments: Catálogo > Archivos
+    keppler_catalogs/categories: Archivo > Categorías
+    keppler_catalogs/catalogs: Catálogos
+    keppler_catalogs/attachments: Catálogo > Archivos
   model:
     plural:
       catalogs: Catálogos
