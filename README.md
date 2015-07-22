@@ -82,7 +82,7 @@ rake catalogs:copy_initializer
 ```
 
 
-## Configuracion de CKeditor
+## Configuración de CKeditor
 
 Para configurar el ckeditor con los elementos necesarios para el catalogo crear el archivo `assets/javascripts/ckeditor/config.js` y luego poner lo siguiente:
 
