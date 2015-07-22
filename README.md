@@ -79,7 +79,8 @@ rake catalogs:copy_initializer
 Este render lee la url del archivo y asigna un tag iframe o img dependiendo del tipo de archivo que consultes.
 
 ```ruby
-= render "keppler_catalogs/attachments/mediaframe", attachment: @attachment
+# attachment_object es la variable que contiene el objeto de un archivo
+= render "keppler_catalogs/attachments/mediaframe", attachment: <Attachment_object>
 ```
 
 ## Configuración de CKeditor
