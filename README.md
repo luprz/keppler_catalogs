@@ -36,13 +36,6 @@ Para agregar `config/initializers/keppler_catalogs.rb` y asi estabelecer los dat
 rake catalogs:copy_initializer
 ```
 
-Seguido a esto debemos cargar los assets de la gema, agregando lo siguiente
-
-en application.js
-
-```
-*= require keppler_catalogs/application
-```
 añadir la siguiente linea a su manifesto javascript admin/application.coffee
 
 ```
