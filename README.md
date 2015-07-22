@@ -80,7 +80,7 @@ Este render lee la url del archivo y asigna un tag iframe o img dependiendo del 
 
 ```ruby
 # attachment_object es la variable que contiene el objeto de un archivo
-= render "keppler_catalogs/attachments/mediaframe", attachment: <Attachment_object>
+= render "keppler_catalogs/attachments/mediaframe", attachment: <Attachment_object>, width: "<width>", height: "<height>"
 ```
 
 ## Configuración de CKeditor
