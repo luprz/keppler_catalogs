@@ -74,6 +74,13 @@ Para agregar `config/initializers/catalogs.rb` y asi estabelecer los datos de co
 rake catalogs:copy_initializer
 ```
 
+## Renderizar Imagenes, Video y audio
+
+Este render lee la url del archivo y asigna un tag iframe o img dependiendo del tipo de archivo que consultes.
+
+```ruby
+= render "keppler_catalogs/attachments/mediaframe", attachment: @attachment
+```
 
 ## Configuración de CKeditor
 
