@@ -1,6 +1,6 @@
 - if attachment.image?
-	= image_tag attachment.image, style:"width:#{width};height:#{height};"
+	= image_tag attachment.image, style:"#{style}"
 - elsif attachment.url? and attachment.upload.to_i == 2
-	= image_tag attachment.url, style:"width:#{width};height:#{height};"
+	= image_tag attachment.url, style:"#{style}"
 - elsif attachment.url? and attachment.upload.to_i == 3
-	%iframe.video-player.img-responsive{:allowfullscreen => "", :frameborder => "0",:src =>"#{attachment.url}", style:"width:#{width};height:#{height};"}
+	%iframe.video-player.img-responsive{:allowfullscreen => "", :frameborder => "0",:src =>"#{attachment.url}", style:"#{style}"}
