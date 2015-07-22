@@ -1,11 +1,11 @@
-## Keppler Catalogo
+## Keppler Catálogo
 
-Un sistema de manejo y control de catalogos integrado al CMS de inyxtech. Este modulo puedo almacenar y ordenar imagenes asi como tambien servicos multimedia en la nube como Youtube, Vimeo y Soundcloud.
+Un sistema de manejo y control de catalogos integrado Keppler-Admin. Este módulo puedo almacenar y ordenar imágenes así como tambien servicos multimedia en la nube como Youtube, Vimeo y Soundcloud.
 
-## Caracteristicas
+## Características
 
 
-- Catalogo de Imagenes, Audio y Video.
+- Catálogo de imágenes, Audio y Video.
 - Configuración para personalización
 
 ## Requerimientos
@@ -24,7 +24,7 @@ gem 'carrierwave'
 gem "ckeditor"
 ```
 
-La siguiente linea habilitará las rutas del engine, debe ser colocada en el archivo `config/initializers/routes.rb`
+La siguiente linea habilitará las rutas del engine, debe ser colocada en el archivo `routes.rb`
 
 ```ruby
 mount KepplerCatalogs::Engine, :at => '/', as: 'catalogs'
