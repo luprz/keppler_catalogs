@@ -31,8 +31,8 @@ module KepplerCatalogs
     def as_indexed_json(options={})
       {
         id: self.id.to_s,
-        name:  self.name
-        description:  ActionView::Base.full_sanitizer.sanitize(self.description, tags: []),
+        name:  self.name,
+        description: ActionView::Base.full_sanitizer.sanitize(self.description, tags: []),
         category: self.category.name,
         public:  self.public ? "publicado" : "no--publicado"
       }.as_json

@@ -27,7 +27,7 @@ module KepplerCatalogs
     def as_indexed_json(options={})
       {
         id: self.id.to_s,
-        name:  self.name
+        name: self.name
       }.as_json
     end
 
