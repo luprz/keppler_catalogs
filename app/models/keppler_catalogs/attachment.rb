@@ -34,7 +34,7 @@ module KepplerCatalogs
         name:  self.name
         description:  ActionView::Base.full_sanitizer.sanitize(self.description, tags: []),
         category: self.category.name,
-        public:  self.public ? "publicado" : "no--publicado",
+        public:  self.public ? "publicado" : "no--publicado"
       }.as_json
     end
 
