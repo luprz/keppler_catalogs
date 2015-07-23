@@ -24,6 +24,12 @@ gem 'carrierwave'
 gem "ckeditor"
 ```
 
+Ubicarse en la ruta del proyecto desde la terminal y ejecutar
+
+```ruby
+Bundle install
+```
+
 La siguiente linea habilitará las rutas del engine, debe ser colocada en el archivo `routes.rb`
 
 ```ruby
@@ -58,20 +64,6 @@ Asignale permisos al modulo en el archivo app/models/ability.rb.
   can :manage, KepplerCatalogs::Catalog
   can :manage, KepplerCatalogs::Category
   can :manage, KepplerCatalogs::Attachment
-```
-
-Ubicarse en la ruta del proyecto desde la terminal y ejecutar
-
-```ruby
-Bundle install
-```
-
-## Configuración
-
-Para agregar `config/initializers/catalogs.rb` y asi estabelecer los datos de configuración debe ejecutar
-
-```ruby
-rake catalogs:copy_initializer
 ```
 
 ## Renderizar Imagenes, Video y audio
