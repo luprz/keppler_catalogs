@@ -29,7 +29,4 @@
 						.display-value.fs-body-1.tc-black-2= @catalog.section.to_s.humanize
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.public")
-						- if @catalog.public?						
-							.display-value.fs-body-1.tc-black-2 Si
-						- else						
-							.display-value.fs-body-1.tc-black-2 No
+						.display-value.fs-body-1.tc-black-2= @catalog.public? ? "Si" : "No"

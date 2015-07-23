@@ -24,6 +24,9 @@
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.description")
 			.display-value= sanitize(@catalog.description, tags: []).truncate(300)
+		%li.list-row
+			.display-label Archivos contenidos
+			.display-value= @catalog.attachments.count
 	
 
 :javascript
