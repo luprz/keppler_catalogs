@@ -1,13 +1,8 @@
-%li
-	- if can? :index, KepplerCatalogs::Catalog
-		.collapsable.collapsible-header{ class: "#{'active current' if controller_path.camelize.deconstantize.eql?('KepplerCatalogs') }" }
-			= material_icon.md_18.perm_media
-			= t('model.plural.catalogs')
-		.collapsible-body
-			%ul.pageslide-sub-menu
-				- if can? :index, KepplerCatalogs::Catalog
-					%li
-						= link_to "Lista de catalogos", '/admin/catalogs', class: "#{'current' if controller_path.camelize == 'KepplerCatalogs::Catalog' }"
-				- if can? :index, KepplerCatalogs::Category
-					%li
-						= link_to "Categorías", '/admin/attachment/categories', class: "#{'current' if controller_path.camelize ==  'KepplerCatalogs::Category' }"
+- if can? :index,  KepplerCatalogs::Catalog
+	%li
+		= header_tab t('model.plural.catalogs'), "perm_media", "KepplerCatalogs"
+		= body_tab do
+			- if can? :index, KepplerCatalogs::Catalog
+				= link_tab "Lista de catálogos", '/admin/catalogs', "KepplerCatalogs::Catalogs"
+			- if can? :index, KepplerCatalogs::Category
+				= link_tab "Categorías", "/admin/attachment/categories", "KepplerCatalogs::Categories"
