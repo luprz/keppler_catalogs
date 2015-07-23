@@ -20,15 +20,14 @@ module KepplerCatalogs
     end
 
     def self.query(query)
-      { query: { multi_match:  { query: query, fields: [:name] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
+      { query: { multi_match:  { query: query, fields: [:id, :name] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
     end
 
     #armar indexado de elasticserch
     def as_indexed_json(options={})
       {
         id: self.id.to_s,
-        name:  self.name.to_s,
-        permalink:  self.permalink.to_s,
+        name:  self.name
       }.as_json
     end
 
