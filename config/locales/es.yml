@@ -14,14 +14,14 @@ es:
       attachment: Archivo
     catalog:
       description:
-        title: Módulo de mensajes 
-        body: Aquí podrá gestionar todos los mensajes enviados desde el formulario de contactos, en ella podras leer, buscar y eliminar mensajes de tus visitas, ademas de poder observar los mensajes leidos y no leidos en la bandeja de entrada.
+        title: Módulo de catálogos 
+        body: Un sistema de manejo y control de catalogos integrado Keppler-Admin. Este módulo puede almacenar y ordenar imágenes así como tambien servicos multimedia en la nube como Youtube, Vimeo y Soundcloud.
       no_found: 
         text: No se han encontrado catálogos.
       attributes:
         name: Nombre
         section: Sección
-        public: Publicado
+        public: Publicar
         description: Descripción
       actions:
         delete: "¿Estas seguro de querer eliminar?"
