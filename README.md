@@ -59,7 +59,9 @@ rake catalogs:copy_initializer `admin/application.scss`
 
 Añadir la siguiente linea a su manifesto stylesheets
 
+```
 @import "keppler_catalogs/admin/application";
+```
 
 Añadir la siguiente linea a su manifesto javascript `admin/application.coffee`
 
