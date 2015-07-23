@@ -24,24 +24,17 @@ module KepplerCatalogs
     end
 
     def self.query(query)
-      { query: { multi_match:  { query: query, fields: [:name, :public, :category] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
+      { query: { multi_match:  { query: query, fields: [:name, :description, :category, :public] , operator: :and }  }, sort: { id: "desc" }, size: self.count }
     end
-
-    
 
     #armar indexado de elasticserch
     def as_indexed_json(options={})
       {
         id: self.id.to_s,
-        name:  self.name.to_s,
-        upload:  self.upload.to_s,
-        description:  self.description.to_s,
-        image:  self.image.to_s,
-        url:  self.url.to_s,
-        target:  self.target.to_s,
+        name:  self.name
+        description:  ActionView::Base.full_sanitizer.sanitize(self.description, tags: []),
         category: self.category.name,
-        public:  self.public ? "Publicado" : "--Publicado",
-        permalink:  self.permalink.to_s,
+        public:  self.public ? "publicado" : "no--publicado",
       }.as_json
     end
 
