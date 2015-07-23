@@ -18,7 +18,7 @@
 						#url
 							= f.input :url, input_html: {class: "materialize-textarea"}
 
-						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'catalog'} }					
+						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'short'} }					
 						
 
 						= f.input :target, label: t("model.#{controller_name.singularize}.attributes.target"), input_html: {class: "materialize-textarea"}

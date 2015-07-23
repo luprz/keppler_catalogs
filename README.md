@@ -83,19 +83,6 @@ Este render lee la url del archivo y asigna un tag iframe o img dependiendo del 
 = render "keppler_catalogs/attachments/mediaframe", attachment: <Attachment_object>, style:"<css_config>"
 ```
 
-## Configuración de CKeditor
-
-Para configurar el ckeditor con los elementos necesarios para el catalogo crear el archivo `assets/javascripts/ckeditor/config.js` y luego poner lo siguiente:
-
-```javascript
-CKEDITOR.editorConfig = function (config) {
-   config.toolbar_catalog = [
-    ["Styles","Format","Font","FontSize","TextColor","BGColor","Bold",  "Italic",  "Underline",  "Strike",  "-",  "Subscript",  "Superscript", "RemoveFormat", "Preview", "Undo", "Redo", "SelectAll", "NumberedList", "BulletedList", "Link", "Unlink", "Anchor","Outdent","Indent","Blockquote","CreateDiv","JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock","BidiLtr","BidiRtl", "Maximize"]
-  ];
-  config.toolbar = "mini";  
-}
-```
-
 ## Vistas
 
 Para copiar las vistas en `app/views/keppler_catalogs` y asi personalizarlas para adaptarlas a sus necesidades debe ejecutar
