@@ -8,11 +8,11 @@
 				= simple_form_for @catalog do |f|
 					.row
 					
-						= f.input :cover, :as => :file_material, label: false, wrapper_html: { class: "file-field" }
-						= f.input :name								
-						= f.input :description, :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'short'} }
-						= f.input :section, label: false, collection: KepplerCatalogs.sections,include_blank: "- Selecciona una sección -", input_html: { class: "browser-default" }
-						= f.input :public, as: :checkbox_material
+						= f.input :cover, label: t("model.#{controller_name.singularize}.attributes.cover"), :as => :file_material, label: false, wrapper_html: { class: "file-field" }
+						= f.input :name, label: t("model.#{controller_name.singularize}.attributes.name")								
+						= f.input :description, label: t("model.#{controller_name.singularize}.attributes.description"), :as => :ckeditor, label: false, input_html: { :ckeditor => { :toolbar => 'short'} }
+						= f.input :section, label: t("model.#{controller_name.singularize}.attributes.section"), label: false, collection: KepplerCatalogs.sections,include_blank: "- Selecciona una sección -", input_html: { class: "browser-default" }
+						= f.input :public, label: t("model.#{controller_name.singularize}.attributes.public"), as: :checkbox_material
 
 						.form-actions.right
 							= f.button :submit, "Guardar", class: "btn"
