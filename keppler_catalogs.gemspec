@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = KepplerCatalogs::VERSION
   s.authors     = [""]
   s.email       = [""]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of KepplerCatalogs."
-  s.description = "TODO: Description of KepplerCatalogs."
+  s.homepage    = "https://github.com/inyxtech/keppler_catalogs.git"
+  s.summary     = "Summary of KepplerCatalogs."
+  s.description = "Un sistema de manejo y control de catalogos integrado Keppler-Admin. Este módulo puedo almacenar y ordenar imágenes así como tambien servicos multimedia en la nube como Youtube, Vimeo y Soundcloud."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
