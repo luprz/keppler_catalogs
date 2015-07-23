@@ -19,12 +19,16 @@
 			= catalog.section
 	%td{style:"width: 30%"}
 		= link_to "", catalog_path(catalog, search: @query), remote: true, class: "show-row"
-		%span
-			-if catalog.public?
-				Publicado
-			-else
-				No Publicado
+		%span= catalog.public? ? "Publicado" : "No publicado"
 								
-	%td{style:"width: 5%"}		
-		= link_to catalog_attachments_path(catalog), class: "btn-floating waves-effect btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Ver Archivos" do
-			= material_icon.md_24.navigate_next.css_class("md-dark")
+	%td{style:"width: 5%"}
+		= link_to "#", class: "btn-floating waves-effect waves-light btn-flat dropdown-button", "data-activates" => 'catalog-options' do
+			= material_icon.md_24.more_vert.css_class("md-dark")
+		%ul{ id: "catalog-options", class: "dropdown-content", id: "catalog-options"}
+			%li
+				= link_to 'Ver detallado', catalog_path(catalog)
+			%li
+				= link_to 'Ir a archivos', catalog_attachments_path(catalog)
+					
+					
+		

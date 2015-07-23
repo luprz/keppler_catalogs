@@ -25,7 +25,7 @@
 						.display-value.fs-body-1.tc-black-2= @attachment.name.to_s.humanize
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.description")
-						.display-value.fs-body-1.tc-black-2= sanitize(@attachment.description, tags: []).truncate(300)
+						.display-value.fs-body-1.tc-black-2= @attachment.description.html_safe
 					%li.list-row
 						.display-label= t("model.#{controller_name.singularize}.attributes.category")
 						.display-value.fs-body-1.tc-black-2= @attachment.category.name.to_s.humanize

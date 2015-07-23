@@ -21,7 +21,7 @@ es:
       attributes:
         name: Nombre
         section: Sección
-        public: Publicado
+        public: Publicar
         description: Descripción
       actions:
         delete: "¿Estas seguro de querer eliminar?"

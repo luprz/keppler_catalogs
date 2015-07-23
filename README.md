@@ -30,6 +30,21 @@ Ubicarse en la ruta del proyecto desde la terminal y ejecutar
 Bundle install
 ```
 
+Luego importar migraciones y crear las tablas de contactos desde la consola
+
+```
+rake keppler_catalogs:install:migrations 
+rake db:migrate
+```
+
+Debe asignar los permisos de autorización para que pueda tener acceso a los módulos del blog, esto debe hacerlo desde el archivo `model/ability.rb`
+
+```ruby
+  can :manage, KepplerCatalogs::Catalog
+  can :manage, KepplerCatalogs::Category
+  can :manage, KepplerCatalogs::Attachment
+```
+
 La siguiente linea habilitará las rutas del engine, debe ser colocada en el archivo `routes.rb`
 
 ```ruby
@@ -39,31 +54,17 @@ mount KepplerCatalogs::Engine, :at => '/', as: 'catalogs'
 Para agregar `config/initializers/keppler_catalogs.rb` y asi estabelecer los datos de configuración debe ejecutar
 
 ```ruby
-rake catalogs:copy_initializer
+rake catalogs:copy_initializer `admin/application.scss`
 ```
 
-añadir la siguiente linea a su manifesto javascript admin/application.coffee
+Añadir la siguiente linea a su manifesto stylesheets
+
+@import "keppler_catalogs/admin/application";
+
+Añadir la siguiente linea a su manifesto javascript `admin/application.coffee`
 
 ```
 #= require keppler_catalogs/application
-#= require ckeditor/init
-```
-
-Luego importar migraciones y crear las tablas de contactos desde la consola
-
-```
-rake keppler_catalogs:install:migrations 
-```
-```
-rake db:migrate
-
-```
-Asignale permisos al modulo en el archivo app/models/ability.rb.
-
-```ruby
-  can :manage, KepplerCatalogs::Catalog
-  can :manage, KepplerCatalogs::Category
-  can :manage, KepplerCatalogs::Attachment
 ```
 
 ## Renderizar Imagenes, Video y audio

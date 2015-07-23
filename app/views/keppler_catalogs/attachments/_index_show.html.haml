@@ -29,12 +29,7 @@
 				.display-value= @attachment.target
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.public")
-			- if @attachment.public?
-				.display-value Si
-			- else
-				.display-value No	
-	
+			.display-value= @attachment.public? ? "Si" : "No"	
 
 :javascript
-	$(".modal-trigger").leanModal();
 	$('.tooltipped').tooltip({delay: 1});

@@ -17,15 +17,11 @@
 			.display-value= @catalog.section
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.public")
-			- if @catalog.public?
-				.display-value Si
-			- else
-				.display-value No	
+			.display-value= @catalog.public? ? "Si" : "No"
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.description")
-			.display-value= @catalog.description.html_safe
+			.display-value= sanitize(@catalog.description, tags: []).truncate(300)
 	
 
 :javascript
-	$(".modal-trigger").leanModal();
 	$('.tooltipped').tooltip({delay: 1});
