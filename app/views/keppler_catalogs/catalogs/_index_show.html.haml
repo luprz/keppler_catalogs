@@ -1,7 +1,10 @@
 .listing-show-header
 	.actions
-		- if can? :update, model
-			= link_to edit_catalog_path(@catalog), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Editar", "data-no-turbolink" => false do
+		- if can? :index, KepplerCatalogs::Attachment
+			= link_to catalog_attachments_path(@catalog), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Ir a archivos", "data-no-turbolink" => false do
+				= material_icon.md_24.perm_media
+		- if can? :update, KepplerCatalogs::Catalog
+			= link_to edit_catalog_path(@catalog), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => "Editar" do
 				= material_icon.md_24.create
 	%h5
 		= material_icon.md_24.perm_media.css_class("md-light") 
