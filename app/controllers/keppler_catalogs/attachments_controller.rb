@@ -7,6 +7,7 @@ module KepplerCatalogs
     layout 'admin/application'
     load_and_authorize_resource
     before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+     before_action :set_catalog, only: [:index, :show, :edit, :update, :destroy]
     before_action :catalog_no_found
 
     # GET /attachments
@@ -67,10 +68,12 @@ module KepplerCatalogs
         @attachment = Attachment.find(params[:id])
       end
 
+      def set_catalog
+        @catalog =  Catalog.find(params[:catalog_id])
+      end
+
       def catalog_no_found
-        if Catalog.find_by_id(params[:catalog_id]).nil?
-          redirect_to "/404"
-        end        
+        redirect_to "/404" if Catalog.find_by_id(params[:catalog_id]).nil?    
       end
 
       # Only allow a trusted parameter "white list" through.

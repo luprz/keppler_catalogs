@@ -1,7 +1,7 @@
 .listing-show-header
 	%h5
 		= material_icon.md_24.perm_media.css_class("md-light") 
-		= t("model.singular.#{controller_name.singularize}")
+		= @catalog.name.humanize
 .listing-show-body.card{ resize: true , style: "height: {{windowHeight}}px;" }
 	.list
 		%h5 
