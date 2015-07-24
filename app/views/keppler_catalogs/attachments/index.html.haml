@@ -3,7 +3,7 @@
 //change header information
 = header_information do
 	= link_to "Catálogos", catalogs_path
-	= "> #{@catalog.name.humanize} > Archivos"
+	= "> #{@catalog.name.humanize}"
 
 .listing.col.l9.m12.s12
 	= link_to new_catalog_attachment_path, class: "btn-floating btn-large waves-effect waves-light teal btn-new hide-on-small-only", "data-no-turbolink" => false do
