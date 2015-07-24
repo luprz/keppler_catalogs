@@ -54,7 +54,7 @@ mount KepplerCatalogs::Engine, :at => '/', as: 'catalogs'
 Para agregar `config/initializers/keppler_catalogs.rb` y asi estabelecer los datos de configuración debe ejecutar
 
 ```ruby
-rake catalogs:copy_initializer `admin/application.scss`
+rake catalogs:copy_initializer
 ```
 
 Añadir la siguiente linea a su manifesto stylesheets
