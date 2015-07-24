@@ -56,7 +56,7 @@ Para agregar `config/initializers/catalogs.rb` y asi estabelecer los datos de co
 ```ruby
 rake catalogs:copy_initializer
 ```
-En el archivo inicializador `config/initializers/catalogs.rb` encontraras una variable llamada sections en donde podrás agregar las sección de la web en los que se localizarán los catálogos. por ejemplo:
+En el archivo inicializador `config/initializers/catalogs.rb` se encontra una variable llamada sections en donde se podrá agregar las secciónes de la web en los que se localizarán los catálogos. por ejemplo:
 
 ```ruby
 KepplerCatalogs.setup do |config|
