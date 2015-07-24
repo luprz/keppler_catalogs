@@ -60,7 +60,7 @@ En el archivo inicializador `config/initializers/catalogs.rb` encontraras una va
 
 ```ruby
 KepplerCatalogs.setup do |config|
-	config.sections = ["Hoteleria", "Gastronomia", "Portafolio"]
+	config.sections = ["Clientes", "Aliados", "Portafolio"]
 end
 ```
 
