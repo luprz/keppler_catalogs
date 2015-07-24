@@ -36,7 +36,7 @@ module KepplerCatalogs
       @attachment.catalog_id = params[:catalog_id]
 
       if @attachment.save
-        redirect_to catalog_attachments_path, notice: 'Attachment was successfully created.'
+        redirect_to catalog_attachments_path, notice: 'Archivo creado satisfactoriamente.'
       else
         render :new
       end
@@ -45,7 +45,7 @@ module KepplerCatalogs
     # PATCH/PUT /attachments/1
     def update
       if @attachment.update(attachment_params)
-        redirect_to catalog_attachments_path, notice: 'Attachment was successfully updated.'
+        redirect_to catalog_attachments_path, notice: 'Archivo editado satisfactoriamente.'
       else
         render :edit
       end
@@ -54,12 +54,12 @@ module KepplerCatalogs
     # DELETE /attachments/1
     def destroy
       @attachment.destroy
-      redirect_to catalog_attachments_url, notice: 'Attachment was successfully destroyed.'
+      redirect_to catalog_attachments_url, notice: 'Archivo eliminado satisfactoriamente.'
     end
 
     def destroy_multiple
       Attachment.destroy redefine_ids(params[:multiple_ids])
-      redirect_to catalog_attachments_path(page: @current_page, search: @query), notice: "Usuarios eliminados satisfactoriamente" 
+      redirect_to catalog_attachments_path(page: @current_page, search: @query), notice: "Archivo eliminados satisfactoriamente" 
     end
 
     private

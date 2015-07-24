@@ -33,7 +33,7 @@ module KepplerCatalogs
       @catalog = Catalog.new(catalog_params)
 
       if @catalog.save
-        redirect_to catalogs_path, notice: 'Catalog was successfully created.'
+        redirect_to catalogs_path, notice: 'Catálogo creado satisfactoriamente.'
       else
         render :new
       end
@@ -42,7 +42,7 @@ module KepplerCatalogs
     # PATCH/PUT /catalogs/1
     def update
       if @catalog.update(catalog_params)
-        redirect_to catalogs_path, notice: 'Catalog was successfully updated.'
+        redirect_to catalogs_path, notice: 'Catálogo editar satisfactoriamente.'
       else
         render :edit
       end
@@ -51,12 +51,12 @@ module KepplerCatalogs
     # DELETE /catalogs/1
     def destroy
       @catalog.destroy
-      redirect_to catalogs_url, notice: 'Catalog was successfully destroyed.'
+      redirect_to catalogs_url, notice: 'Catálogo eliminar satisfactoriamente.'
     end
 
     def destroy_multiple
       Catalog.destroy redefine_ids(params[:multiple_ids])
-      redirect_to catalogs_path(page: @current_page, search: @query), notice: "Usuarios eliminados satisfactoriamente" 
+      redirect_to catalogs_path(page: @current_page, search: @query), notice: "Catalogos eliminados satisfactoriamente" 
     end
 
     private

@@ -7,9 +7,12 @@ module KepplerCatalogs
     belongs_to :catalog
     belongs_to :category
     before_save :create_permalink
-    after_update :remove_image
-    before_save :url_iframe_service
+    before_save :url_iframe_service    
+    before_update :update_uploads
+    after_update :remove_image_public
     mount_uploader :image, CoverUploader
+    validates_presence_of :category_id, :name, :upload
+
     
     after_commit on: [:update] do
       puts __elasticsearch__.index_document
@@ -42,12 +45,13 @@ module KepplerCatalogs
       self.permalink = self.name.downcase.parameterize
     end
 
-    def remove_image
+    def remove_image_public
       if !self.image_url.nil? and self.upload != "1"
         image = File.dirname(Rails.root.join("public"+self.image_url))
         FileUtils.rm_rf(image)
       end
     end
+    
 
     def url_iframe_service
       if !self.url.blank?
@@ -95,6 +99,14 @@ module KepplerCatalogs
       if self.upload == "2"
         {"imagen"=>""}
       end
+    end
+
+    def update_uploads
+      if self.upload == "1"
+        self.url = ""
+      else
+        self.remove_image!
+      end   
     end
 
   end

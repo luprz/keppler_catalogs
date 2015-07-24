@@ -7,7 +7,8 @@ module KepplerCatalogs
     mount_uploader :cover, CoverUploader
     before_save :create_permalink
     has_many :attachments, :dependent => :destroy
-    after_update :remove_image
+    validates_presence_of :name, :section    
+    validates_length_of :name, :minimum => 1, :maximum => 15
 
     after_commit on: [:update] do
       puts __elasticsearch__.index_document
@@ -40,11 +41,6 @@ module KepplerCatalogs
 
     def create_permalink
       self.permalink = self.name.downcase.parameterize
-    end
-
-    def remove_image
-      image = File.dirname(Rails.root.join("public"+self.image_url))
-      FileUtils.rm_rf(image)
     end
 
   end
