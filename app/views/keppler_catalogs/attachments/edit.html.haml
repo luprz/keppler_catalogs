@@ -1,6 +1,8 @@
 = title "Archivo - editar | #{@attachment.id}"
 = header_information do
 	= link_to "Catálogos", catalogs_path
-	= "> #{@catalog.name.humanize} > #{@attachment.name.humanize}"
+	= ">"
+	= link_to "#{@catalog.name.humanize}", catalog_attachments_path
+	= "> #{@attachment.name.humanize}"
 
 = render 'form'

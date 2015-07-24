@@ -16,3 +16,6 @@
 
 						.form-actions.right
 							= f.button :submit, "Guardar", class: "btn"
+- if @catalog.cover.file
+	:javascript
+		$('.file-path').val("#{@catalog.cover}")

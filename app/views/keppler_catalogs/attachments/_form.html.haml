@@ -30,6 +30,9 @@
 						.form-actions.right
 							= f.button :submit, "Guardar", class: "btn"
 
+- if @attachment.image.file
+	:javascript
+		$('.file-path').val("#{@attachment.image}")
 
 -if @attachment.upload == "1"
 	:javascript    
