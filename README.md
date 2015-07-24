@@ -51,10 +51,17 @@ La siguiente linea habilitará las rutas del engine, debe ser colocada en el arc
 mount KepplerCatalogs::Engine, :at => '/', as: 'catalogs'
 ```
 
-Para agregar `config/initializers/keppler_catalogs.rb` y asi estabelecer los datos de configuración debe ejecutar
+Para agregar `config/initializers/catalogs.rb` y asi estabelecer los datos de configuración debe ejecutar
 
 ```ruby
 rake catalogs:copy_initializer
+```
+En el archivo inicializador `config/initializers/catalogs.rb` encontraras una variable llamada sections en donde podrás agregar las sección de la web en los que se localizarán los catálogos. por ejemplo:
+
+```ruby
+KepplerCatalogs.setup do |config|
+	config.sections = ["Hoteleria", "Gastronomia", "Portafolio"]
+end
 ```
 
 Añadir la siguiente linea a su manifesto stylesheets
