@@ -22,9 +22,9 @@
 		%span= catalog.public? ? "Publicado" : "No publicado"
 								
 	%td{style:"width: 5%"}
-		= link_to "#", class: "btn-floating waves-effect waves-light btn-flat dropdown-button", "data-activates" => 'catalog-options' do
+		= link_to "#", class: "btn-floating waves-effect waves-light btn-flat dropdown-button", "data-activates" => "catalog-options-#{catalog.id}" do
 			= material_icon.md_24.more_vert.css_class("md-dark")
-		%ul{ id: "catalog-options", class: "dropdown-content", id: "catalog-options"}
+		%ul{ id: "catalog-options", class: "dropdown-content dropdow-content-listing", id: "catalog-options-#{catalog.id}"}
 			%li
 				= link_to 'Ver detallado', catalog_path(catalog)
 			%li
