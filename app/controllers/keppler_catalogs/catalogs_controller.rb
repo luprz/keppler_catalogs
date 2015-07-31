@@ -42,7 +42,7 @@ module KepplerCatalogs
     # PATCH/PUT /catalogs/1
     def update
       if @catalog.update(catalog_params)
-        redirect_to catalogs_path, notice: 'Catálogo editar satisfactoriamente.'
+        redirect_to catalogs_path, notice: 'Catálogo editado satisfactoriamente.'
       else
         render :edit
       end
@@ -51,7 +51,7 @@ module KepplerCatalogs
     # DELETE /catalogs/1
     def destroy
       @catalog.destroy
-      redirect_to catalogs_url, notice: 'Catálogo eliminar satisfactoriamente.'
+      redirect_to catalogs_url, notice: 'Catálogo eliminado satisfactoriamente.'
     end
 
     def destroy_multiple
