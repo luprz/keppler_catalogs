@@ -20,9 +20,10 @@
 		%li.list-row
 			.display-label= t("model.#{controller_name.singularize}.attributes.description")
 			.display-value= sanitize(@attachment.description, tags: []).truncate(300)
-		%li.list-row
-			.display-label= t("model.#{controller_name.singularize}.attributes.category")
-			.display-value= @attachment.category.name
+		-if @attachment.category.name?
+			%li.list-row
+				.display-label= t("model.#{controller_name.singularize}.attributes.category")
+				.display-value= @attachment.category.name
 		-if @attachment.target?
 			%li.list-row
 				.display-label= t("model.#{controller_name.singularize}.attributes.target")
