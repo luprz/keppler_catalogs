@@ -75,7 +75,7 @@ module KepplerCatalogs
     end
 
     def detected_soundcloud_sets
-      client = Soundcloud.new(:client_id => 'YOUR_CLIENT_ID')
+      client = Soundcloud.new(:client_id => '83248842d66fa9b18bf565a65ad8a40e')
       begin
         track = client.get('/resolve', :url => self.url)
         if self.url.split(/\W+/).include?("sets")
